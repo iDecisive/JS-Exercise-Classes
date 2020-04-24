@@ -178,7 +178,6 @@ class Instructor extends Lambdasian{
     this.specialty = attributes.specialty;
     this.favLanguage = attributes.favLanguage;
     this.catchPhrase = attributes.catchPhrase;
-    
 
   }
 
@@ -192,6 +191,10 @@ class Instructor extends Lambdasian{
 
     return student.name + "receives a perfect score on " + subject;
 
+  }
+
+  chgGrade(obj) {  //for stretch
+    obj.grade = Math.floor(Math.random()*100); 
   }
 
 }
@@ -219,6 +222,9 @@ class Student extends Lambdasian{
     this.previousBackground = attributes.previousBackground;
     this.className = attributes.className;
     this.favSubjects = attributes.favSubjects;
+    this.name = attributes.name;
+    
+    this.grade = 75; //For stretch
 
   }
 
@@ -240,6 +246,20 @@ class Student extends Lambdasian{
 
   }
 
+  graduate() { //For stretch
+
+    if(this.grade > 70) {
+  
+      return this.name + " just graduated!";
+  
+    }else {
+  
+      this.grade = Math.floor(Math.random()*100); 
+  
+      return 'Grading assignments to "increase their score" : ' + this.grade;
+  
+    }
+  }
 }
 
 /*
@@ -286,6 +306,16 @@ class ProjectManager extends Instructor {
       + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
       + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
 */
+
+let Jacob = new Instructor({name: "Jacob"});
+
+let Daniel = new Student({name: "Daniel"});
+
+Jacob.chgGrade(Daniel); //randomized grade
+
+console.log("Daniel's current grade: " + Daniel.grade); 
+
+console.log(Daniel.graduate());
 
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
