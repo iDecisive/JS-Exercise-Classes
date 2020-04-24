@@ -271,8 +271,11 @@ class ProjectManager extends Instructor {
 
   }
 
-  
+  debugsCode(obj, subject) {
 
+    return obj.name + " debugs " + this.name + "'s code on " + subject;
+
+  }
 }
 
 /*
